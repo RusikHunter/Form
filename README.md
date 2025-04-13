@@ -1,0 +1,1 @@
+Simple registration/authorization form in React.

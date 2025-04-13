@@ -1,0 +1,23 @@
+@use "../../styles/index.scss" as *;
+
+.header {
+
+    &_column {}
+
+    &__inner {}
+
+    &__row {
+        padding-block: var(--padding-block-header);
+        align-items: center;
+    }
+
+    &__column--1 {}
+
+    &__logo {
+        color: var(--color-white);
+        @include fluid-text(20, 20);
+        @include font(var(--font-family), 600, 1);
+    }
+
+    &__column--2 {}
+}

@@ -1,0 +1,46 @@
+:root {
+    // Default colors
+
+    --color-white: #FFFFFF;
+    --color-black: #000000;
+    --color-darkgray: #252525;
+    --color-red: #B04B4C;
+    --color-blue: #18314D;
+    --color-lightblue: #8cafbe;
+
+    // Theme colors
+
+    --color-text: var(--color-black);
+    --color-background: var(--color-blue);
+
+    // Fonts
+
+    --font-family: "Poppins", sans-serif;
+
+    // Borders
+
+    // Transition
+
+    --transition: 0.5s ease;
+
+    // Sizes and indents
+
+    --padding-inline-container: 24px;
+    --padding-inline-container-small: 12px;
+
+    --padding-block-header: 24px;
+
+    // Theme settings
+
+    body[data-js-theme="light"] {
+        --color-background: var(--color-lightblue);
+    }
+
+    body[data-js-theme="dark"] {
+        --color-background: var(--color-blue);
+    }
+
+    //
+    // In processing...
+    //
+}

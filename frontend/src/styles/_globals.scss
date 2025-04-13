@@ -6,7 +6,7 @@
 
 body {
     background-color: var(--color-background);
-    transition: background-color 0.25s ease;
+    transition: background-color var(--transition-fast);
 }
 
 a,
@@ -19,6 +19,11 @@ a:focus {
 }
 
 button {
+    border: none;
+    outline: none;
+}
+
+input {
     border: none;
     outline: none;
 }

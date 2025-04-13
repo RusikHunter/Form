@@ -2,8 +2,10 @@
 
 .form-wrap {
     width: 500px;
+    height: 500px;
     background-color: var(--color-red);
     border-radius: 15px;
+    position: relative;
 
     &__tools {
         display: flex;
@@ -13,6 +15,7 @@
 
     &__button--toggle-mode {
         background-color: transparent;
+        z-index: 9;
     }
 
     &__button-icon {
@@ -36,4 +39,31 @@
     }
 
     &__content {}
+
+    &::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 150px;
+        height: 100%;
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 20% 100%);
+        transition: background-color var(--transition-fast);
+    }
+}
+
+body[data-js-theme="light"] {
+    .form-wrap {
+        &::after {
+            background-color: var(--color-white);
+        }
+    }
+}
+
+body[data-js-theme="dark"] {
+    .form-wrap {
+        &::after {
+            background-color: var(--color-darkgray);
+        }
+    }
 }

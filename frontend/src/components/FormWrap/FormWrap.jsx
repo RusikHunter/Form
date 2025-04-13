@@ -1,5 +1,6 @@
 import React from "react"
 import { useState } from "react"
+import FormRegistration from "../FormRegistration/FormRegistration"
 import signupIcon from "../../images/icons/signup.png"
 import loginIcon from "../../images/icons/login.png"
 import "./FormWrap.scss"
@@ -35,7 +36,10 @@ export default function FormWrap() {
             </div>
 
             <div className="form-wrap__content">
-                {mode === "signup" ? "Sign Up Form" : "Log In Form"}
+                {mode === "signup"
+                    ? <FormRegistration />
+                    : "Log In Form"
+                }
             </div>
         </div>
     )

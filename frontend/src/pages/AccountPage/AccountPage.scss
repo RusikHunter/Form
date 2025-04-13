@@ -2,6 +2,8 @@
 
     &__inner {}
 
+    // .row added for higher selector specificity
+
     &__row,
     .row {
         justify-content: center;

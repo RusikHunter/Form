@@ -6,6 +6,11 @@
     flex-direction: column;
     width: 100%;
     margin-inline: auto;
+    padding-inline: var(--padding-inline-container);
+
+    @include mobile-small {
+        padding-inline: var(--padding-inline-container-small);
+    }
 }
 
 .row {

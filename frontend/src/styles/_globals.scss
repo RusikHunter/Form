@@ -1,3 +1,23 @@
 //
 // In processing...
 //
+
+@use "variables" as *;
+
+body {
+    background-color: var(--color-background);
+}
+
+a,
+a:visited,
+a:hover,
+a:active,
+a:focus {
+    text-decoration: none;
+    cursor: pointer;
+}
+
+button {
+    border: none;
+    outline: none;
+}

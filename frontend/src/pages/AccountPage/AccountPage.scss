@@ -1,0 +1,11 @@
+.account {
+
+    &__inner {}
+
+    &__row,
+    .row {
+        justify-content: center;
+    }
+
+    &__column {}
+}

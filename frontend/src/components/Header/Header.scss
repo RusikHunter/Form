@@ -20,42 +20,4 @@
     }
 
     &__column--2 {}
-
-    &__button--toggle-theme {
-        display: flex;
-        width: 45px;
-        height: 25px;
-        border-radius: 15px;
-        align-items: center;
-        padding: 0 4px;
-    }
-
-    &__button--toggle-theme-decoration {
-        height: 19px;
-        width: 19px;
-        border-radius: 50%;
-        background-color: black;
-    }
-}
-
-body[data-js-theme="light"] {
-    .header__button--toggle-theme {
-        background-color: var(--color-darkgray);
-        justify-content: start;
-    }
-
-    .header__button--toggle-theme-decoration {
-        background-color: var(--color-white);
-    }
-}
-
-body[data-js-theme="dark"] {
-    .header__button--toggle-theme {
-        background-color: var(--color-white);
-        justify-content: end;
-    }
-
-    .header__button--toggle-theme-decoration {
-        background-color: var(--color-darkgray);
-    }
 }

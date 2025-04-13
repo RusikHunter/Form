@@ -1,5 +1,6 @@
 import React from "react"
 import "./Header.scss"
+import ThemeButton from "../ThemeButton/ThemeButton"
 
 export default function Header() {
     return (
@@ -11,9 +12,7 @@ export default function Header() {
                     </div>
 
                     <div className="header_column header__column--2 column">
-                        <button className="header__button--toggle-theme">
-                            <div className="header__button--toggle-theme-decoration"></div>
-                        </button>
+                        <ThemeButton />
                     </div>
                 </div>
             </div>

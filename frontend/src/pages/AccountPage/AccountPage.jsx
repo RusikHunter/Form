@@ -2,6 +2,6 @@ import React from "react"
 
 export default function AccountPage() {
     return (
-        <p>AccountPage</p>
+        <p data-testid="account-page">AccountPage</p>
     )
 }

@@ -3,7 +3,7 @@ import "./FormRegistration.scss"
 
 export default function FormRegistration() {
     return (
-        <form className="form form__autorization">
+        <form className="form form__registration">
             <label className="form__label" htmlFor="username">
                 <span className="form__span">Username</span>
                 <input className="form__input" type="text" name="username" required />

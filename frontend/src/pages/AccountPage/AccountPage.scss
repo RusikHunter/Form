@@ -1,3 +1,5 @@
+@use "../../styles/index" as *;
+
 .account {
 
     &__inner {}
@@ -7,7 +9,14 @@
     &__row,
     .row {
         justify-content: center;
+        padding-bottom: 50px;
     }
 
     &__column {}
+
+    @include mobile {
+        &__column {
+            width: 100%;
+        }
+    }
 }

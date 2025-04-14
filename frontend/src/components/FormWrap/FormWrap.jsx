@@ -23,24 +23,27 @@ export default function FormWrap() {
                             alt="Sign Up"
                             width={24}
                             height={24}
-                            className={`form-wrap__icon ${mode === "signup" ? "form-wrap__icon--active" : ""}`}
+                            className={`form-wrap__icon ${mode === "login" ? "form-wrap__icon--active" : ""}`}
                         />
                         <img
                             src={loginIcon}
                             alt="Log In"
                             width={24}
                             height={24}
-                            className={`form-wrap__icon ${mode === "login" ? "form-wrap__icon--active" : ""}`}
+                            className={`form-wrap__icon ${mode === "signup" ? "form-wrap__icon--active" : ""}`}
                         />
                     </div>
                 </button>
             </div>
 
             <div className="form-wrap__content">
-                {mode === "signup"
-                    ? <FormRegistration />
-                    : <FormAuthorization />
-                }
+                <div className={`form-wrap__form-container ${mode === "signup" ? "form-wrap__form-container--active" : ""}`}>
+                    <FormRegistration />
+                </div>
+
+                <div className={`form-wrap__form-container ${mode === "login" ? "form-wrap__form-container--active" : ""}`}>
+                    <FormAuthorization />
+                </div>
             </div>
         </div>
     )

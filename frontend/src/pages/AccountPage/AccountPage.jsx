@@ -1,7 +1,7 @@
 import React from "react"
 
-export default function FormPage() {
+export default function AccountPage() {
     return (
-        <p data-testid="form-page">FormPage</p>
+        <p data-testid="account-page">AccountPage</p>
     )
 }

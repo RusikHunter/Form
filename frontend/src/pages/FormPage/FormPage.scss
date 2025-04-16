@@ -1,0 +1,22 @@
+@use "../../styles/index" as *;
+
+.form {
+
+    &__inner {}
+
+    // .row added for higher selector specificity
+
+    &__row,
+    .row {
+        justify-content: center;
+        // padding-bottom: 50px;
+    }
+
+    &__column {}
+
+    @include mobile {
+        &__column {
+            width: 100%;
+        }
+    }
+}

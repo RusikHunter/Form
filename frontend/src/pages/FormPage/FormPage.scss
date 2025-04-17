@@ -1,6 +1,6 @@
 @use "../../styles/index" as *;
 
-.account {
+.form {
 
     &__inner {}
 
@@ -8,6 +8,7 @@
 
     &__row,
     .row {
+        justify-content: center;
         padding-bottom: 50px;
     }
 

@@ -1,3 +1,5 @@
+@use "../../styles/index" as *;
+
 .button--toggle-theme {
     display: flex;
     width: 45px;
@@ -5,7 +7,15 @@
     border-radius: 15px;
     align-items: center;
     padding: 0 4px;
-    transition: background-color var(--transition);
+    transition: background-color var(--transition), box-shadow var(--transition);
+
+    @include desktop-screen {
+
+        &:hover,
+        &:focus-visible {
+            box-shadow: 0 3px 15px rgba(0, 0, 0, 0.35);
+        }
+    }
 }
 
 .button--toggle-theme-decoration {

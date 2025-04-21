@@ -3,15 +3,18 @@
 
     --color-white: #FFFFFF;
     --color-black: #000000;
+    --color-gray: #CECECE;
     --color-darkgray: #252525;
-    --color-red: #B04B4C;
-    --color-blue: #18314D;
-    --color-lightblue: #8cafbe;
+    --color-blue: #3B81D2;
+    --color-darkblue: #114077;
 
     // Theme colors
 
     --color-text: var(--color-black);
-    --color-background: var(--color-blue);
+
+    // Gradients
+
+    --gradient-background: linear-gradient(135deg, #4a90e2, #50bfe6);
 
     // Fonts
 
@@ -34,11 +37,13 @@
     // Theme settings
 
     body[data-js-theme="light"] {
-        --color-background: var(--color-lightblue);
+        --color-text: var(--color-black);
+        --gradient-background: linear-gradient(135deg, #4a90e2, #50bfe6);
     }
 
     body[data-js-theme="dark"] {
-        --color-background: var(--color-blue);
+        --color-text: var(--color-gray);
+        --gradient-background: linear-gradient(135deg, #1a1c2b, #343e5a);
     }
 
     //

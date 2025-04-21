@@ -1,7 +1,7 @@
 from fastapi import FastAPI, Depends, HTTPException
 from sqlalchemy.orm import Session
-from app.database import SessionLocal, engine
-import app.models, app.schemas
+from database import SessionLocal, engine
+import models, schemas
 from passlib.context import CryptContext
 from typing import List
 

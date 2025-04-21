@@ -11,6 +11,7 @@
 
     &__label {
         display: flex;
+        position: relative;
         flex-direction: column;
         row-gap: 10px;
     }
@@ -29,6 +30,14 @@
 
         @include fluid-text(12, 12);
         @include font(var(--font-family), 400, 1);
+    }
+
+    &__error {
+        position: absolute;
+        top: 60px;
+        @include fluid-text(10, 10);
+        @include font(var(--font-family), 400, 1);
+        color: var(--color-red);
     }
 
     &__submit {

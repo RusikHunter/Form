@@ -5,9 +5,10 @@
     flex-direction: column;
     width: 500px;
     height: 400px;
-    background-color: var(--color-red);
+    background-color: var(--color-blue);
     border-radius: 15px;
     position: relative;
+    transition: background-color var(--transition);
 
     &__tools {
         display: flex;
@@ -17,6 +18,15 @@
 
     &__button--exit {
         background-color: transparent;
+        transition: transform var(--transition);
+
+        @include desktop-screen {
+
+            &:hover,
+            &:focus-visible {
+                transform: scale(1.1);
+            }
+        }
     }
 
     &__icon {}
@@ -42,7 +52,22 @@
         margin-top: 10px;
     }
 
+    &__username,
+    &__id,
+    &__email,
+    &__status {
+        color: var(--color-text);
+        transition: color var(--transition);
+    }
+
     @include mobile {
         width: 100%;
+    }
+}
+
+body[data-js-theme="dark"] {
+
+    .account-wrap {
+        background-color: var(--color-darkblue);
     }
 }

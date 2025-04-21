@@ -17,6 +17,16 @@
         color: var(--color-white);
         @include fluid-text(20, 20);
         @include font(var(--font-family), 600, 1);
+        transition: transform var(--transition);
+
+        @include desktop-screen {
+
+            &:hover,
+            &:focus-visible {
+                outline: 0;
+                transform: scale(1.03);
+            }
+        }
     }
 
     &__column--2 {}

@@ -5,10 +5,12 @@ import AccountPage from "./pages/AccountPage/AccountPage"
 import ErrorPage from "./pages/ErrorPage/ErrorPage"
 import Header from "./components/Header/Header"
 import { useSelector } from 'react-redux'
+import { ToastContainer } from 'react-toastify'
 
 
 export default function App() {
     const theme = useSelector(state => state.client.theme)
+    const isLogged = useSelector(state => state.user.isLogged)
 
     useEffect(() => {
         document.body.setAttribute("data-js-theme", theme)
@@ -20,9 +22,16 @@ export default function App() {
             <main className="main">
                 <Routes>
                     <Route path="/" element={<FormPage />} />
-                    <Route path="/account" element={<AccountPage />} />
+                    {isLogged
+                        ?
+                        <Route path="/account" element={<AccountPage />} />
+                        :
+                        <Route path="/account" element={<FormPage />} />
+                    }
                     <Route path="*" element={<ErrorPage />} />
                 </Routes>
+
+                <ToastContainer />
             </main>
         </>
     )

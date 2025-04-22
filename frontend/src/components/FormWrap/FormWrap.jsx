@@ -44,7 +44,7 @@ export default function FormWrap() {
                 <div className={`form-wrap__form-container`}>
                     {mode === 'signup'
                         ?
-                        <FormRegistration />
+                        <FormRegistration changeMode={handleClick} />
                         :
                         <FormAuthorization />
                     }

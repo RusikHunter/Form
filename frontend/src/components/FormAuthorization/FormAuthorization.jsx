@@ -50,7 +50,7 @@ export default function FormAuthorization() {
             .then((response) => {
                 console.log('success')
                 const data = response.data
-                dispatch(setIsLogged())
+                dispatch(setIsLogged(true))
                 dispatch(setCurrentUser(data))
                 navigate("/account")
             })

@@ -10,6 +10,7 @@ import { ToastContainer } from 'react-toastify'
 
 export default function App() {
     const theme = useSelector(state => state.client.theme)
+    const isLogged = useSelector(state => state.user.isLogged)
 
     useEffect(() => {
         document.body.setAttribute("data-js-theme", theme)
@@ -21,7 +22,12 @@ export default function App() {
             <main className="main">
                 <Routes>
                     <Route path="/" element={<FormPage />} />
-                    <Route path="/account" element={<AccountPage />} />
+                    {isLogged
+                        ?
+                        <Route path="/account" element={<AccountPage />} />
+                        :
+                        <Route path="/account" element={<FormPage />} />
+                    }
                     <Route path="*" element={<ErrorPage />} />
                 </Routes>
 

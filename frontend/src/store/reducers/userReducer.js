@@ -7,8 +7,8 @@ const userSlice = createSlice({
         currentUser: {}
     },
     reducers: {
-        setIsLogged: (state) => {
-            state.isLogged = !state.isLogged
+        setIsLogged: (state, action) => {
+            state.isLogged = action.payload
         },
         setCurrentUser: (state, action) => {
             state.currentUser = action.payload

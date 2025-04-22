@@ -31,7 +31,7 @@ export default function App() {
                     <Route path="*" element={<ErrorPage />} />
                 </Routes>
 
-                <ToastContainer />
+                <ToastContainer data-testid="toast-container" />
             </main>
         </>
     )

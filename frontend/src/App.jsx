@@ -5,6 +5,7 @@ import AccountPage from "./pages/AccountPage/AccountPage"
 import ErrorPage from "./pages/ErrorPage/ErrorPage"
 import Header from "./components/Header/Header"
 import { useSelector } from 'react-redux'
+import { ToastContainer } from 'react-toastify'
 
 
 export default function App() {
@@ -23,6 +24,8 @@ export default function App() {
                     <Route path="/account" element={<AccountPage />} />
                     <Route path="*" element={<ErrorPage />} />
                 </Routes>
+
+                <ToastContainer />
             </main>
         </>
     )

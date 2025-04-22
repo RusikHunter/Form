@@ -3,6 +3,7 @@
 //
 
 @use "variables" as *;
+@use "media" as *;
 
 body {
     background-image: var(--gradient-background);
@@ -30,6 +31,14 @@ input {
 
 body::-webkit-scrollbar {
     display: none;
+}
+
+.Toastify__toast {
+    @include mobile-small {
+        width: 80%;
+        border-radius: 6px;
+        margin: 10px;
+    }
 }
 
 .Toastify__progress-bar,

@@ -2,6 +2,7 @@ import React from "react"
 import { useForm } from "react-hook-form"
 import { yupResolver } from "@hookform/resolvers/yup"
 import * as yup from "yup"
+import axios from "axios"
 import "./FormRegistration.scss"
 
 export default function FormRegistration() {
@@ -22,7 +23,28 @@ export default function FormRegistration() {
     const onSubmit = async (data) => {
         console.log(data)
 
-        const response = await axios.post("https://users-database-fenr.onrender.com/users", userData)
+        const userData = {
+            username: data.username,
+            email: data.email,
+            password: data.password,
+            status: "User"
+        }
+
+        try {
+            const response = await axios.post(
+                "https://users-database-fenr.onrender.com/users",
+                userData,
+                {
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                }
+            )
+
+            console.log("User created:", response.data)
+        } catch (error) {
+            console.error("Failed to create user:", error)
+        }
     }
 
     return (

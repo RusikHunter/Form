@@ -91,7 +91,6 @@ describe("FormAuthorization - Success login", () => {
 
         renderWithProviders(store)
 
-        // Вводим данные
         fireEvent.input(screen.getByLabelText(/Email/i), {
             target: { value: "test@example.com" }
         })
@@ -99,7 +98,6 @@ describe("FormAuthorization - Success login", () => {
             target: { value: "123456" }
         })
 
-        // Сабмитим форму
         fireEvent.click(screen.getByTestId("form-submit"))
 
         await waitFor(() => {

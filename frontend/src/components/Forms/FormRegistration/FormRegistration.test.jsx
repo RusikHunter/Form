@@ -7,7 +7,6 @@ import { Provider } from "react-redux"
 import FormRegistration from "./FormRegistration"
 import { createStore } from "redux"
 import { toast } from "react-toastify"
-import { setTheme } from "../../store/reducers/clientReducer"
 
 const mockStore = createStore((state = {
     user: { isLogged: false, currentUser: {} },
@@ -47,30 +46,24 @@ describe("FormRegistration component - required fields", () => {
             </Provider>
         )
 
-        // Try to submit the form with empty fields
         fireEvent.click(screen.getByText(/sign up/i))
 
-        // Check for username error
         await waitFor(() => {
             expect(screen.getByText(/Username is required/i)).toBeInTheDocument()
         })
 
-        // Fill in the form correctly
         fireEvent.change(screen.getByTestId("form-input-username"), { target: { value: "testUser" } })
         fireEvent.change(screen.getByTestId("form-input-email"), { target: { value: "test@example.com" } })
         fireEvent.change(screen.getByTestId("form-input-password"), { target: { value: "password123" } })
         fireEvent.change(screen.getByTestId("form-input-repeat-password"), { target: { value: "password123" } })
 
-        // Submit the form
         fireEvent.click(screen.getByText(/sign up/i))
 
-        // Check that toast.promise was called (indicating a submit attempt)
         await waitFor(() => {
             expect(toast.promise).toHaveBeenCalled()
         })
 
-        // Check that the changeMode function was called after successful registration
-        expect(mockDispatch).not.toHaveBeenCalled() // as this is a mock
+        expect(mockDispatch).not.toHaveBeenCalled()
     })
 
     it("shows error when email is invalid", async () => {
@@ -82,7 +75,6 @@ describe("FormRegistration component - required fields", () => {
             </Provider>
         )
 
-        // Fill in invalid email
         fireEvent.change(screen.getByTestId("form-input-email"), { target: { value: "invalidEmail" } })
         fireEvent.click(screen.getByText(/sign up/i))
 
@@ -103,17 +95,14 @@ describe("FormRegistration component - required fields", () => {
             </Provider>
         )
 
-        // Fill in valid form data
         fireEvent.change(screen.getByTestId("form-input-username"), { target: { value: "testUser" } })
         fireEvent.change(screen.getByTestId("form-input-email"), { target: { value: "test@example.com" } })
         fireEvent.change(screen.getByTestId("form-input-password"), { target: { value: "password123" } })
         fireEvent.change(screen.getByTestId("form-input-repeat-password"), { target: { value: "password123" } })
 
-        // Submit the form
         fireEvent.click(screen.getByText(/sign up/i))
 
         await waitFor(() => {
-            // Check that changeMode was called after successful registration
             expect(changeModeMock).toHaveBeenCalled()
         })
     })
@@ -127,7 +116,6 @@ describe("FormRegistration component - required fields", () => {
             </Provider>
         )
 
-        // Fill in mismatched passwords
         fireEvent.change(screen.getByTestId("form-input-password"), { target: { value: "password123" } })
         fireEvent.change(screen.getByTestId("form-input-repeat-password"), { target: { value: "password321" } })
         fireEvent.click(screen.getByText(/sign up/i))
@@ -428,13 +416,10 @@ describe("FormRegistration component - side effects", () => {
         fireEvent.change(screen.getByTestId("form-input-password"), { target: { value: "validPass123" } })
         fireEvent.change(screen.getByTestId("form-input-repeat-password"), { target: { value: "validPass123" } })
 
-        // Симулируем успешную регистрацию
         toast.promise.mockImplementationOnce(() => Promise.resolve())
 
-        // Симулируем отправку формы
         fireEvent.click(screen.getByText(/sign up/i))
 
-        // Проверяем, что changeMode был вызван после успешной регистрации
         await waitFor(() => {
             expect(changeModeMock).toHaveBeenCalled()
         })
@@ -451,7 +436,6 @@ describe("FormRegistration component - UI elements", () => {
             </Provider>
         )
 
-        // Проверка, что все элементы формы отображаются
         expect(screen.getByTestId("form-input-username")).toBeInTheDocument()
         expect(screen.getByTestId("form-input-email")).toBeInTheDocument()
         expect(screen.getByTestId("form-input-password")).toBeInTheDocument()
@@ -468,10 +452,8 @@ describe("FormRegistration component - UI elements", () => {
             </Provider>
         )
 
-        // Попытка отправить форму с пустыми полями
         fireEvent.click(screen.getByText(/sign up/i))
 
-        // Проверка, что ошибки отображаются
         await waitFor(() => {
             setTimeout(() => {
                 expect(screen.getByText(/Username is required/i)).toBeInTheDocument()
@@ -491,13 +473,11 @@ describe("FormRegistration component - UI elements", () => {
             </Provider>
         )
 
-        // Ввод корректных данных в поля
         fireEvent.change(screen.getByTestId("form-input-username"), { target: { value: "testUser" } })
         fireEvent.change(screen.getByTestId("form-input-email"), { target: { value: "test@example.com" } })
         fireEvent.change(screen.getByTestId("form-input-password"), { target: { value: "password123" } })
         fireEvent.change(screen.getByTestId("form-input-repeat-password"), { target: { value: "password123" } })
 
-        // Проверка, что значения были корректно введены
         expect(screen.getByTestId("form-input-username").value).toBe("testUser")
         expect(screen.getByTestId("form-input-email").value).toBe("test@example.com")
         expect(screen.getByTestId("form-input-password").value).toBe("password123")
@@ -513,11 +493,9 @@ describe("FormRegistration component - UI elements", () => {
             </Provider>
         )
 
-        // Проверка, что кнопка отображается
         const button = screen.getByRole('button', { name: /sign up/i })
         expect(button).toBeInTheDocument()
 
-        // Проверка, что кнопка кликабельна
         fireEvent.click(button)
     })
 
@@ -530,12 +508,10 @@ describe("FormRegistration component - UI elements", () => {
             </Provider>
         )
 
-        // Ввод паролей, которые не совпадают
         fireEvent.change(screen.getByTestId("form-input-password"), { target: { value: "password123" } })
         fireEvent.change(screen.getByTestId("form-input-repeat-password"), { target: { value: "password321" } })
         fireEvent.click(screen.getByText(/sign up/i))
 
-        // Проверка ошибки для несовпадающих паролей
         await waitFor(() => {
             expect(screen.getByText(/Passwords must match/i)).toBeInTheDocument()
         })

@@ -5,9 +5,9 @@ import * as yup from "yup"
 import { toast } from 'react-toastify'
 import axios from "axios"
 import { useDispatch } from 'react-redux'
-import { setIsLogged, setCurrentUser } from "../../store/reducers/userReducer"
+import { setIsLogged, setCurrentUser } from "../../../store/reducers/userReducer"
 import { useNavigate } from "react-router-dom"
-import "./FormAuthorization.scss"
+import "../Form.scss"
 
 export default function FormAuthorization() {
     const schema = yup.object().shape({

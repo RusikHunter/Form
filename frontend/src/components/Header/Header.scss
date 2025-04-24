@@ -2,16 +2,10 @@
 
 .header {
 
-    &_column {}
-
-    &__inner {}
-
     &__row {
         padding-block: var(--padding-block-header);
         align-items: center;
     }
-
-    &__column--1 {}
 
     &__logo {
         color: var(--color-white);
@@ -28,6 +22,4 @@
             }
         }
     }
-
-    &__column--2 {}
 }

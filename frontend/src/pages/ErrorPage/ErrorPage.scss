@@ -2,10 +2,6 @@
 
 .error {
 
-    &__inner {}
-
-    &__row {}
-
     &__message {
         @include fluid-text(16, 16);
         @include font(var(--font-family), 400, 1);

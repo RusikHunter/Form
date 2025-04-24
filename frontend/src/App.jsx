@@ -17,7 +17,7 @@ export default function App() {
     }, [theme])
 
     return (
-        <>
+        <div data-testid="app-component">
             <Header />
             <main className="main">
                 <Routes>
@@ -33,6 +33,6 @@ export default function App() {
 
                 <ToastContainer data-testid="toast-container" />
             </main>
-        </>
+        </div>
     )
 }

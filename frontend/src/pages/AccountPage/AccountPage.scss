@@ -2,16 +2,9 @@
 
 .account {
 
-    &__inner {}
-
-    // .row added for higher selector specificity
-
-    &__row,
-    .row {
+    &__row {
         padding-bottom: 50px;
     }
-
-    &__column {}
 
     @include mobile {
         &__column {

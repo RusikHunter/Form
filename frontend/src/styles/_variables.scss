@@ -9,19 +9,14 @@
     --color-darkblue: #114077;
     --color-red: #b00000;
 
-    // Theme colors
+    // Theme colors and gradients
 
     --color-text: var(--color-black);
-
-    // Gradients
-
     --gradient-background: linear-gradient(135deg, #4a90e2, #50bfe6);
 
     // Fonts
 
     --font-family: "Poppins", sans-serif;
-
-    // Borders
 
     // Transition
 
@@ -46,8 +41,4 @@
         --color-text: var(--color-gray);
         --gradient-background: linear-gradient(135deg, #1a1c2b, #343e5a);
     }
-
-    //
-    // In processing...
-    //
 }

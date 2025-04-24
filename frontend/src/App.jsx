@@ -7,7 +7,6 @@ import Header from "./components/Header/Header"
 import { useSelector } from 'react-redux'
 import { ToastContainer } from 'react-toastify'
 
-
 export default function App() {
     const theme = useSelector(state => state.client.theme)
     const isLogged = useSelector(state => state.user.isLogged)

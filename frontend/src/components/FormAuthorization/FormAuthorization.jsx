@@ -46,38 +46,35 @@ export default function FormAuthorization() {
                 error: 'Authorization failed. Please try again.',
                 hideProgressBar: true,
             }
-        )
-            .then((response) => {
-                console.log('success')
-                const data = response.data
-                dispatch(setIsLogged(true))
-                dispatch(setCurrentUser(data))
-                navigate("/account")
-            })
-            .catch((error) => {
-                const errorMessage = `${error.response?.data?.detail}.` || 'Authorization failed. Please try again.'
-                toast.error(errorMessage, { hideProgressBar: true })
-            })
-            .finally(() => {
-                reset()
-            })
+        ).then((response) => {
+            console.log('success')
+            const data = response.data
+            dispatch(setIsLogged(true))
+            dispatch(setCurrentUser(data))
+            navigate("/account")
+        }).catch((error) => {
+            const errorMessage = `${error.response?.data?.detail}.` || 'Authorization failed. Please try again.'
+            toast.error(errorMessage, { hideProgressBar: true })
+        }).finally(() => {
+            reset()
+        })
     }
 
     return (
-        <form className="form form__autorization" onSubmit={handleSubmit(onSubmit)}>
+        <form className="form form__autorization" noValidate onSubmit={handleSubmit(onSubmit)}>
             <label className="form__label" htmlFor="email">
-                <span className="form__span">Email</span>
-                <input className="form__input" type="email" name="email" {...register("email")} />
-                {errors.email && <p className="form__error">{errors.email.message}</p>}
+                <span className="form__span" data-testid="form-span-email">Email</span>
+                <input className="form__input" type="email" id="email" data-testid="form-input-email" name="email" {...register("email")} />
+                {errors.email && <p className="form__error" data-testid="form-error-email">{errors.email.message}</p>}
             </label>
 
             <label className="form__label" htmlFor="password">
-                <span className="form__span">Password</span>
-                <input className="form__input" type="password" name="password" {...register("password")} />
-                {errors.password && <p className="form__error">{errors.password.message}</p>}
+                <span className="form__span" data-testid="form-span-password">Password</span>
+                <input className="form__input" type="password" id="password" name="password" {...register("password")} />
+                {errors.password && <p className="form__error" data-testid="form-error-password">{errors.password.message}</p>}
             </label>
 
-            <button className="form__submit" type="submit">Log in</button>
+            <button className="form__submit" type="submit" data-testid="form-submit">Log in</button>
         </form>
     )
 }

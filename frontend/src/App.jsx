@@ -17,7 +17,7 @@ export default function App() {
     }, [theme])
 
     return (
-        <>
+        <div data-testid="app-component">
             <Header />
             <main className="main">
                 <Routes>
@@ -31,8 +31,8 @@ export default function App() {
                     <Route path="*" element={<ErrorPage />} />
                 </Routes>
 
-                <ToastContainer />
+                <ToastContainer data-testid="toast-container" />
             </main>
-        </>
+        </div>
     )
 }

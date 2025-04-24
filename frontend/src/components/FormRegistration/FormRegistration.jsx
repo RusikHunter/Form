@@ -65,25 +65,25 @@ export default function FormRegistration({ changeMode }) {
             <form className="form form__registration" onSubmit={handleSubmit(onSubmit)}>
                 <label className="form__label" htmlFor="username">
                     <span className="form__span">Username</span>
-                    <input className="form__input" type="text" name="username" {...register("username")} />
+                    <input className="form__input" type="text" data-testid="form-input-username" name="username" {...register("username")} />
                     {errors.username && <p className="form__error">{errors.username.message}</p>}
                 </label>
 
                 <label className="form__label" htmlFor="email">
                     <span className="form__span">Email</span>
-                    <input className="form__input" type="email" name="email" {...register("email")} />
+                    <input className="form__input" type="email" data-testid="form-input-email" name="email" {...register("email")} />
                     {errors.email && <p className="form__error">{errors.email.message}</p>}
                 </label>
 
                 <label className="form__label" htmlFor="password">
                     <span className="form__span">Password</span>
-                    <input className="form__input" type="password" name="password" {...register("password")} />
+                    <input className="form__input" type="password" data-testid="form-input-password" name="password" {...register("password")} />
                     {errors.password && <p className="form__error">{errors.password.message}</p>}
                 </label>
 
                 <label className="form__label" htmlFor="repeatPassword">
                     <span className="form__span">Repeat password</span>
-                    <input className="form__input" type="password" name="repeatPassword" {...register("repeatPassword")} />
+                    <input className="form__input" type="password" data-testid="form-input-repeat-password" name="repeatPassword" {...register("repeatPassword")} />
                     {errors.repeatPassword && <p className="form__error">{errors.repeatPassword.message}</p>}
                 </label>
 

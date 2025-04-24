@@ -16,7 +16,7 @@ export default function AccountWrap() {
     return (
         <div className="account-wrap">
             <div className="account-wrap__tools">
-                <button className="account-wrap__button--exit" onClick={handleClick}>
+                <button className="account-wrap__button--exit" onClick={handleClick} data-testid="account-wrap-button-exit">
                     <img className="account-wrap__icon" src={exitIcon} alt="Exit" width={24} height={24} />
                 </button>
             </div>

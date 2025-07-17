@@ -34,7 +34,7 @@ export default function FormRegistration({ changeMode }) {
             await setDoc(doc(db, "users", user.uid), {
                 username: data.username,
                 email: data.email,
-                status: data.status
+                status: "User"
             })
 
             toast.success("User successfully registered!")
@@ -46,6 +46,8 @@ export default function FormRegistration({ changeMode }) {
             } else {
                 toast.error("Registration error: ", error.message)
             }
+
+            console.log(error.message)
         }
     }
 

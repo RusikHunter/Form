@@ -39,5 +39,15 @@ body::-webkit-scrollbar {
 
 .Toastify__progress-bar,
 .Toastify__progress-bar--wrp {
-    display: none !important;
+    opacity: 0 !important;
+}
+
+.Toastify__toast--error {
+    .Toastify__toast-icon {
+        color: var(--color-red);
+    }
+}
+
+.Toastify__toast-icon {
+    color: var(--color-green);
 }

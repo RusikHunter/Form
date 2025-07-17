@@ -25,25 +25,16 @@ export default function FormRegistration({ changeMode }) {
     })
 
     const onSubmit = async (data) => {
-        console.log(data)
-
-        const userData = {
-            username: data.username,
-            email: data.email,
-            password: data.password,
-            status: "User"
-        }
-
         try {
             toast.info("Registering user...")
 
-            const userCredential = await createUserWithEmailAndPassword(auth, userData.email, userData.password)
+            const userCredential = await createUserWithEmailAndPassword(auth, data.email, data.password)
             const user = userCredential.user
 
             await setDoc(doc(db, "users", user.uid), {
-                username: userData.username,
-                email: userData.email,
-                status: userData.status
+                username: data.username,
+                email: data.email,
+                status: data.status
             })
 
             toast.success("User successfully registered!")
@@ -53,7 +44,7 @@ export default function FormRegistration({ changeMode }) {
             if (error.message === "Firebase: Error (auth/email-already-in-use).") {
                 toast.error("Email already in use.")
             } else {
-                toast.error("Registration error. ", error.message)
+                toast.error("Registration error: ", error.message)
             }
         }
     }

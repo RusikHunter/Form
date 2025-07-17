@@ -27,8 +27,6 @@ export default function FormAuthorization() {
     const navigate = useNavigate()
 
     const onSubmit = async (data) => {
-        console.log(data)
-
         try {
             toast.info("Authorizing...")
 
@@ -51,7 +49,11 @@ export default function FormAuthorization() {
             navigate("/account")
             reset()
         } catch (error) {
-            toast.error(error.message || "Authorization failed. Please try again.")
+            if (error.message === "Firebase: Error (auth/invalid-credential).") {
+                toast.error("Invalid credential.")
+            } else {
+                toast.error("Authorization error: ", error.message)
+            }
         }
     }
 

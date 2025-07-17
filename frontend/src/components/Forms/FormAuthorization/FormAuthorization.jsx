@@ -8,6 +8,10 @@ import { useDispatch } from 'react-redux'
 import { setIsLogged, setCurrentUser } from "../../../store/reducers/userReducer"
 import { useNavigate } from "react-router-dom"
 import "../Form.scss"
+import { signInWithEmailAndPassword } from "firebase/auth"
+import { auth } from "../../../assets/firebase"
+import { doc, getDoc } from "firebase/firestore"
+import { db } from "../../../assets/firebase"
 
 export default function FormAuthorization() {
     const schema = yup.object().shape({
@@ -25,39 +29,30 @@ export default function FormAuthorization() {
     const onSubmit = async (data) => {
         console.log(data)
 
-        const userData = {
-            email: data.email,
-            password: data.password,
-        }
+        try {
+            toast.info("Authorizing...")
 
-        toast.promise(
-            axios.post(
-                "https://users-database-fenr.onrender.com/users/login",
-                userData,
-                {
-                    headers: {
-                        "Content-Type": "application/json",
-                    },
-                }
-            ),
-            {
-                pending: 'Authorization...',
-                success: 'Welcome!',
-                error: 'Authorization failed. Please try again.',
-                hideProgressBar: true,
-            }
-        ).then((response) => {
-            console.log('success')
-            const data = response.data
+            const userCredential = await signInWithEmailAndPassword(auth, data.email, data.password)
+            const user = userCredential.user
+
+            const userDocRef = doc(db, "users", user.uid)
+            const userDocSnap = await getDoc(userDocRef)
+
+            const userData = userDocSnap.exists() ? userDocSnap.data() : {}
+
             dispatch(setIsLogged(true))
-            dispatch(setCurrentUser(data))
+            dispatch(setCurrentUser({
+                id: user.uid,
+                email: user.email,
+                ...userData
+            }))
+
+            toast.success("Welcome!")
             navigate("/account")
-        }).catch((error) => {
-            const errorMessage = `${error.response?.data?.detail}.` || 'Authorization failed. Please try again.'
-            toast.error(errorMessage, { hideProgressBar: true })
-        }).finally(() => {
             reset()
-        })
+        } catch (error) {
+            toast.error(error.message || "Authorization failed. Please try again.")
+        }
     }
 
     return (

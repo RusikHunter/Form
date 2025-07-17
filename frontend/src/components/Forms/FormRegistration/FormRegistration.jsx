@@ -24,48 +24,6 @@ export default function FormRegistration({ changeMode }) {
         resolver: yupResolver(schema)
     })
 
-    // // const onSubmit = async (data) => {
-    // //     console.log(data)
-
-    // //     const userData = {
-    // //         username: data.username,
-    // //         email: data.email,
-    // //         password: data.password,
-    // //         status: "User"
-    // //     }
-
-    //     // toast.promise(
-    //     //     axios.post(
-    //     //         "https://users-database-fenr.onrender.com/users",
-    //     //         userData,
-    //     //         {
-    //     //             headers: {
-    //     //                 "Content-Type": "application/json",
-    //     //             },
-    //     //         }
-    //     //     ),
-    //     //     {
-    //     //         pending: 'Registering user...',
-    //     //         success: 'User successfully registered!',
-    //     //         error: 'Registration failed. Please try again.',
-    //     //         hideProgressBar: true,
-    //     //     }
-    //     // )
-    //     //     .then(() => {
-    //     //         changeMode()
-    //     //     })
-    //     //     .catch((error) => {
-    //     //         const errorMessage = `${error.response?.data?.detail}.` || 'Registration failed. Please try again.'
-    //     //         toast.error(errorMessage, { hideProgressBar: true })
-    //     //     })
-    //     //     .finally(() => {
-    //     //         reset()
-    //     //     })
-
-
-
-    // }
-
     const onSubmit = async (data) => {
         console.log(data)
 
@@ -79,11 +37,9 @@ export default function FormRegistration({ changeMode }) {
         try {
             toast.info("Registering user...")
 
-            // Регистрируем пользователя
             const userCredential = await createUserWithEmailAndPassword(auth, userData.email, userData.password)
             const user = userCredential.user
 
-            // Сохраняем дополнительные данные в Firestore
             await setDoc(doc(db, "users", user.uid), {
                 username: userData.username,
                 email: userData.email,

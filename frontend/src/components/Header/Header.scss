@@ -22,4 +22,37 @@
             }
         }
     }
+
+    &__link-wrap {
+        display: flex;
+        flex: 1;
+        justify-content: end;
+        padding-right: 30px;
+
+        @include mobile-small {
+            padding-right: 15px;
+        }
+    }
+
+    &__link--account {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background-color: var(--color-blue);
+        color: var(--color-black);
+        @include fluid-text(20, 20);
+        @include font(var(--font-family), 600, 1);
+
+        @include desktop-screen {
+
+            &:hover,
+            &:focus-visible {
+                outline: 0;
+                transform: scale(1.03);
+            }
+        }
+    }
 }

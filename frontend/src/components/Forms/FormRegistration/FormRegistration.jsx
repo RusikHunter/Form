@@ -5,6 +5,9 @@ import * as yup from "yup"
 import axios from "axios"
 import { toast } from 'react-toastify'
 import "../Form.scss"
+import { createUserWithEmailAndPassword } from "firebase/auth"
+import { doc, setDoc } from "firebase/firestore"
+import { auth, db } from "../../../assets/firebase"
 
 export default function FormRegistration({ changeMode }) {
     const schema = yup.object().shape({
@@ -22,42 +25,28 @@ export default function FormRegistration({ changeMode }) {
     })
 
     const onSubmit = async (data) => {
-        console.log(data)
+        try {
+            toast.info("Registering user...")
 
-        const userData = {
-            username: data.username,
-            email: data.email,
-            password: data.password,
-            status: "User"
-        }
+            const userCredential = await createUserWithEmailAndPassword(auth, data.email, data.password)
+            const user = userCredential.user
 
-        toast.promise(
-            axios.post(
-                "https://users-database-fenr.onrender.com/users",
-                userData,
-                {
-                    headers: {
-                        "Content-Type": "application/json",
-                    },
-                }
-            ),
-            {
-                pending: 'Registering user...',
-                success: 'User successfully registered!',
-                error: 'Registration failed. Please try again.',
-                hideProgressBar: true,
+            await setDoc(doc(db, "users", user.uid), {
+                username: data.username,
+                email: data.email,
+                status: data.status
+            })
+
+            toast.success("User successfully registered!")
+            changeMode()
+            reset()
+        } catch (error) {
+            if (error.message === "Firebase: Error (auth/email-already-in-use).") {
+                toast.error("Email already in use.")
+            } else {
+                toast.error("Registration error: ", error.message)
             }
-        )
-            .then(() => {
-                changeMode()
-            })
-            .catch((error) => {
-                const errorMessage = `${error.response?.data?.detail}.` || 'Registration failed. Please try again.'
-                toast.error(errorMessage, { hideProgressBar: true })
-            })
-            .finally(() => {
-                reset()
-            })
+        }
     }
 
     return (

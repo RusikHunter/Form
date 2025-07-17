@@ -1,22 +1,27 @@
 import React from "react"
 import "./AccountWrap.scss"
-import { useSelector } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
 import { useNavigate } from "react-router-dom"
 import exitIcon from "../../images/icons/exit.png"
+import { setIsLogged, setCurrentUser } from "../../store/reducers/userReducer"
 
 export default function AccountWrap() {
     const currentUser = useSelector((state) => state.user.currentUser)
 
+    const dispatch = useDispatch()
+
     const navigate = useNavigate()
 
-    const handleClick = () => {
+    const handleExit = () => {
         navigate("/")
+        dispatch(setIsLogged(false))
+        dispatch(setCurrentUser({}))
     }
 
     return (
         <div className="account-wrap">
             <div className="account-wrap__tools">
-                <button className="account-wrap__button--exit" onClick={handleClick} data-testid="account-wrap-button-exit">
+                <button className="account-wrap__button--exit" onClick={handleExit} data-testid="account-wrap-button-exit">
                     <img className="account-wrap__icon" src={exitIcon} alt="Exit" width={24} height={24} />
                 </button>
             </div>

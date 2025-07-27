@@ -38,7 +38,7 @@ Clone the repository:
 ```bash
 
 git clone git@github.com:RusikHunter/Form.git
-cd organick
+cd form
 npm install
 ```
 

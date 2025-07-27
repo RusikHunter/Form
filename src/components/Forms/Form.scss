@@ -1,0 +1,65 @@
+@use "@styles/index" as *;
+
+.form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 12px;
+    row-gap: 20px;
+
+    &__label {
+        display: flex;
+        position: relative;
+        flex-direction: column;
+        row-gap: 10px;
+    }
+
+    &__span {
+        @include fluid-text(16, 16);
+        @include font(var(--font-family), 400, 1);
+        color: var(--color-text);
+        transition: color var(--transition);
+    }
+
+    &__input {
+        border-radius: 5px;
+        padding: 5px 7px;
+        transition: background-color var(--transition);
+
+        @include fluid-text(12, 12);
+        @include font(var(--font-family), 400, 1);
+    }
+
+    &__error {
+        position: absolute;
+        top: 60px;
+        @include fluid-text(10, 10);
+        @include font(var(--font-family), 400, 1);
+        color: var(--color-red);
+    }
+
+    &__submit {
+        height: 40px;
+        margin-top: 20px;
+        border-radius: 5px;
+        @include fluid-text(16, 16);
+        @include font(var(--font-family), 400, 1);
+        transition: transform var(--transition), background-color var(--transition);
+
+        @include desktop-screen {
+
+            &:hover,
+            &:focus-visible {
+                transform: scale(1.03);
+            }
+        }
+    }
+}
+
+body[data-js-theme="dark"] {
+
+    .form__input,
+    .form__submit {
+        background-color: var(--color-gray);
+    }
+}

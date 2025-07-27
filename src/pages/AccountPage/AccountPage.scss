@@ -1,0 +1,14 @@
+@use "@styles/index" as *;
+
+.account {
+
+    &__row {
+        padding-bottom: 50px;
+    }
+
+    @include mobile {
+        &__column {
+            width: 100%;
+        }
+    }
+}

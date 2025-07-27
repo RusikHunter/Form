@@ -1,0 +1,11 @@
+@use "@styles/index" as *;
+
+.error {
+
+    &__message {
+        @include fluid-text(16, 16);
+        @include font(var(--font-family), 400, 1);
+        transition: color var(--transition);
+        color: var(--color-text);
+    }
+}

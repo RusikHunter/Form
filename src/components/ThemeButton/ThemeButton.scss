@@ -1,0 +1,49 @@
+@use "@styles/index" as *;
+
+.button--toggle-theme {
+    display: flex;
+    width: 45px;
+    height: 25px;
+    border-radius: 15px;
+    align-items: center;
+    padding: 0 4px;
+    transition: background-color var(--transition), box-shadow var(--transition);
+
+    @include desktop-screen {
+
+        &:hover,
+        &:focus-visible {
+            box-shadow: 0 3px 15px rgba(0, 0, 0, 0.35);
+        }
+    }
+}
+
+.button--toggle-theme-decoration {
+    height: 19px;
+    width: 19px;
+    border-radius: 50%;
+    background-color: black;
+    transition: transform var(--transition), background-color var(--transition);
+}
+
+body[data-js-theme="light"] {
+    .button--toggle-theme {
+        background-color: var(--color-darkgray);
+    }
+
+    .button--toggle-theme-decoration {
+        background-color: var(--color-white);
+        transform: translateX(0);
+    }
+}
+
+body[data-js-theme="dark"] {
+    .button--toggle-theme {
+        background-color: var(--color-white);
+    }
+
+    .button--toggle-theme-decoration {
+        background-color: var(--color-darkgray);
+        transform: translateX(19px);
+    }
+}

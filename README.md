@@ -74,7 +74,7 @@ I may fix any bugs or issues if reported. Feedback and constructive criticism ar
 
 ## 📎 Links
 
-Website - [Organick](https://form-inky-six.vercel.app/)
+Website - [Form](https://form-inky-six.vercel.app/)
 
 ---
 

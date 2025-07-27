@@ -9,9 +9,9 @@ import "./FormWrap.scss"
 export default function FormWrap() {
     const [mode, setMode] = useState("signup")
 
-    const handleClick = () => {
+    const handleClick = useCallback(() => {
         setMode(prevMode => (prevMode === "signup" ? "login" : "signup"))
-    }
+    }, [mode])
 
     return (
         <div className="form-wrap">

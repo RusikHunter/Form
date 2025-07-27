@@ -13,12 +13,12 @@ import { doc, getDoc } from "firebase/firestore"
 import { db } from "@config/firebase"
 import routes from "@config/routes"
 
-export default function FormAuthorization() {
-    const schema = yup.object().shape({
-        email: yup.string().email("Invalid email").required("Email is required"),
-        password: yup.string().required("Password is required"),
-    })
+const schema = yup.object().shape({
+    email: yup.string().email("Invalid email").required("Email is required"),
+    password: yup.string().required("Password is required"),
+})
 
+export default function FormAuthorization() {
     const { register, handleSubmit, formState: { errors }, reset } = useForm({
         resolver: yupResolver(schema)
     })

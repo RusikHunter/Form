@@ -66,7 +66,7 @@ export default function FormAuthorization() {
 
             <label className="form__label" htmlFor="password">
                 <span className="form__span" data-testid="form-span-password">Password</span>
-                <input className="form__input" type="password" id="password" name="password" {...register("password")} />
+                <input className="form__input" type="password" id="password" name="password" {...register("password")} data-testid="form-input-password" />
                 {errors.password && <p className="form__error" data-testid="form-error-password">{errors.password.message}</p>}
             </label>
 

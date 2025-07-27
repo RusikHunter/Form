@@ -1,6 +1,6 @@
 import React from "react"
 import "./Header.scss"
-import ThemeButton from "../ThemeButton/ThemeButton"
+import ThemeButton from "@components/ThemeButton/ThemeButton"
 import { Link } from "react-router-dom"
 import { useSelector } from "react-redux"
 

@@ -3,15 +3,14 @@ import { useForm } from "react-hook-form"
 import { yupResolver } from "@hookform/resolvers/yup"
 import * as yup from "yup"
 import { toast } from 'react-toastify'
-import axios from "axios"
 import { useDispatch } from 'react-redux'
-import { setIsLogged, setCurrentUser } from "../../../store/reducers/userReducer"
+import { setIsLogged, setCurrentUser } from "@store/reducers/userReducer"
 import { useNavigate } from "react-router-dom"
-import "../Form.scss"
+import "@components/Forms/Form.scss"
 import { signInWithEmailAndPassword } from "firebase/auth"
-import { auth } from "../../../assets/firebase"
+import { auth } from "@assets/firebase"
 import { doc, getDoc } from "firebase/firestore"
-import { db } from "../../../assets/firebase"
+import { db } from "@assets/firebase"
 
 export default function FormAuthorization() {
     const schema = yup.object().shape({

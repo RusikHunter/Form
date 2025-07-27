@@ -6,7 +6,7 @@ import ThemeButton from "./ThemeButton"
 import { createStore } from 'redux'
 import { MemoryRouter } from 'react-router-dom'
 import { Provider } from 'react-redux'
-import { setTheme } from "../../store/reducers/clientReducer"
+import { setTheme } from "@store/reducers/clientReducer"
 
 const mockStore = createStore((state = {
     user: { isLogged: true, currentUser: {} },

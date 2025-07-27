@@ -1,5 +1,5 @@
 import React from "react"
-import AccountWrap from "../../components/AccountWrap/AccountWrap"
+import AccountWrap from "@components/AccountWrap/AccountWrap"
 import "./AccountPage.scss"
 
 export default function AccountPage() {

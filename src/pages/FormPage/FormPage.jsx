@@ -1,5 +1,5 @@
-import React, { useEffect } from "react"
-import FormWrap from "../../components/FormWrap/FormWrap"
+import React from "react"
+import FormWrap from "@components/FormWrap/FormWrap"
 import "./FormPage.scss"
 
 export default function FormPage() {

@@ -1,6 +1,6 @@
 import React from "react"
-import { useDispatch, useSelector } from 'react-redux'
-import { setTheme } from "../../store/reducers/clientReducer.js"
+import { useDispatch } from 'react-redux'
+import { setTheme } from "@store/reducers/clientReducer.js"
 import "./ThemeButton.scss"
 
 export default function ThemeButton() {

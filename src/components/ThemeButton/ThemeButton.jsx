@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useCallback } from "react"
 import { useDispatch } from 'react-redux'
 import { setTheme } from "@store/reducers/clientReducer.js"
 import "./ThemeButton.scss"
@@ -6,7 +6,7 @@ import "./ThemeButton.scss"
 export default React.memo(function ThemeButton() {
     const dispatch = useDispatch()
 
-    const handleClick = React.useCallback(() => {
+    const handleClick = useCallback(() => {
         dispatch(setTheme())
     }, [dispatch])
 

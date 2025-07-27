@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useCallback } from "react"
 import { useState } from "react"
 import FormRegistration from "@components/Forms/FormRegistration/FormRegistration"
 import FormAuthorization from "@components/Forms/FormAuthorization/FormAuthorization"

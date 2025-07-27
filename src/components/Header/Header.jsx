@@ -3,6 +3,7 @@ import "./Header.scss"
 import ThemeButton from "@components/ThemeButton/ThemeButton"
 import { Link } from "react-router-dom"
 import { useSelector } from "react-redux"
+import routes from "@config/routes"
 
 export default function Header() {
     const isLogged = useSelector(state => state.user.isLogged)
@@ -13,12 +14,12 @@ export default function Header() {
             <div className="header__inner container">
                 <div className="header__row row">
                     <div className="header_column header__column--1 column">
-                        <Link className="header__logo" to="/">dmfshoveForm</Link>
+                        <Link className="header__logo" to={routes.form}>dmfshoveForm</Link>
                     </div>
 
                     <div className="header__link-wrap">
                         {isLogged &&
-                            <Link className="header__link--account" to="/account">{currentUser.username.slice(0, 1).toUpperCase()}</Link>
+                            <Link className="header__link--account" to={routes.account}>{currentUser.username.slice(0, 1).toUpperCase()}</Link>
                         }
                     </div>
 

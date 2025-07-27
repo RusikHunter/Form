@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux"
 import { useNavigate } from "react-router-dom"
 import exitIcon from "@assets/icons/exit.png"
 import { setIsLogged, setCurrentUser } from "@store/reducers/userReducer"
+import routes from "@config/routes"
 
 export default function AccountWrap() {
     const currentUser = useSelector((state) => state.user.currentUser)
@@ -13,7 +14,7 @@ export default function AccountWrap() {
     const navigate = useNavigate()
 
     const handleExit = () => {
-        navigate("/")
+        navigate(routes.main)
         dispatch(setIsLogged(false))
         dispatch(setCurrentUser({}))
     }

@@ -4,17 +4,15 @@ import FormPage from "./pages/FormPage/FormPage"
 import AccountPage from "./pages/AccountPage/AccountPage"
 import ErrorPage from "./pages/ErrorPage/ErrorPage"
 import Header from "./components/Header/Header"
-import { useDispatch, useSelector } from 'react-redux'
+import { useSelector } from 'react-redux'
 import { ToastContainer } from 'react-toastify'
-import { setIsLogged, setCurrentUser } from "./store/reducers/userReducer"
 import PrivateRoute from "./components/PrivateRoute/PrivateRoute"
+import routes from "@config/routes"
 
 export default function App() {
     const theme = useSelector(state => state.client.theme)
     const isLogged = useSelector(state => state.user.isLogged)
     const currentUser = useSelector(state => state.user.currentUser)
-
-    const dispatch = useDispatch()
 
     useEffect(() => {
         document.body.setAttribute("data-js-theme", theme)
@@ -33,10 +31,10 @@ export default function App() {
             <Header />
             <main className="main">
                 <Routes>
-                    <Route path="/" element={<FormPage />} />
+                    <Route path={routes.form} element={<FormPage />} />
 
                     <Route
-                        path="/account"
+                        path={routes.account}
                         element={
                             <PrivateRoute isLogged={isLogged}>
                                 <AccountPage />
@@ -44,7 +42,7 @@ export default function App() {
                         }
                     />
 
-                    <Route path="*" element={<ErrorPage />} />
+                    <Route path={routes.notfound} element={<ErrorPage />} />
                 </Routes>
 
                 <ToastContainer data-testid="toast-container" />

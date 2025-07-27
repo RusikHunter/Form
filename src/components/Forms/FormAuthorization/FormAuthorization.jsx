@@ -11,6 +11,7 @@ import { signInWithEmailAndPassword } from "firebase/auth"
 import { auth } from "@config/firebase"
 import { doc, getDoc } from "firebase/firestore"
 import { db } from "@config/firebase"
+import routes from "@config/routes"
 
 export default function FormAuthorization() {
     const schema = yup.object().shape({
@@ -45,7 +46,7 @@ export default function FormAuthorization() {
             }))
 
             toast.success("Welcome!")
-            navigate("/account")
+            navigate(routes.account)
             reset()
         } catch (error) {
             if (error.message === "Firebase: Error (auth/invalid-credential).") {

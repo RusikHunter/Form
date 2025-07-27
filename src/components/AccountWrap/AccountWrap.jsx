@@ -2,7 +2,7 @@ import React from "react"
 import "./AccountWrap.scss"
 import { useDispatch, useSelector } from "react-redux"
 import { useNavigate } from "react-router-dom"
-import exitIcon from "@images/icons/exit.png"
+import exitIcon from "@assets/icons/exit.png"
 import { setIsLogged, setCurrentUser } from "@store/reducers/userReducer"
 
 export default function AccountWrap() {

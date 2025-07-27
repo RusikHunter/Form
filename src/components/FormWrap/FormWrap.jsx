@@ -2,8 +2,8 @@ import React from "react"
 import { useState } from "react"
 import FormRegistration from "@components/Forms/FormRegistration/FormRegistration"
 import FormAuthorization from "@components/Forms/FormAuthorization/FormAuthorization"
-import signupIcon from "@images/icons/signup.png"
-import loginIcon from "@images/icons/login.png"
+import signupIcon from "@assets/icons/signup.png"
+import loginIcon from "@assets/icons/login.png"
 import "./FormWrap.scss"
 
 export default function FormWrap() {

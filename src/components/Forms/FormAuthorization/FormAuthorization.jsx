@@ -8,9 +8,9 @@ import { setIsLogged, setCurrentUser } from "@store/reducers/userReducer"
 import { useNavigate } from "react-router-dom"
 import "@components/Forms/Form.scss"
 import { signInWithEmailAndPassword } from "firebase/auth"
-import { auth } from "@assets/firebase"
+import { auth } from "@config/firebase"
 import { doc, getDoc } from "firebase/firestore"
-import { db } from "@assets/firebase"
+import { db } from "@config/firebase"
 
 export default function FormAuthorization() {
     const schema = yup.object().shape({

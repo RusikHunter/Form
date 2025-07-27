@@ -3,10 +3,10 @@ import { useForm } from "react-hook-form"
 import { yupResolver } from "@hookform/resolvers/yup"
 import * as yup from "yup"
 import { toast } from 'react-toastify'
-import "../Form.scss"
+import "@components/Forms/Form.scss"
 import { createUserWithEmailAndPassword } from "firebase/auth"
 import { doc, setDoc } from "firebase/firestore"
-import { auth, db } from "@assets/firebase"
+import { auth, db } from "@config/firebase"
 
 export default function FormRegistration({ changeMode }) {
     const schema = yup.object().shape({

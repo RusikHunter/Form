@@ -75,11 +75,3 @@ I may fix any bugs or issues if reported. Feedback and constructive criticism ar
 ## 📎 Links
 
 Website - [Form](https://form-inky-six.vercel.app/)
-
----
-
-## 🙏 Acknowledgements
-
-Special thanks to [aleksanderlamkov](https://github.com/aleksanderlamkov) and his community for their helpful feedback and for providing a CSS normalize file used in this project.
-
-Thanks also to [ChatGPT](https://openai.com/chatgpt) for assistance during development and documentation.
